@@ -148,6 +148,36 @@
            document.getElementById("newmigrantform").submit();
          }
       </script>
+      
+<script>
+document.getElementById("newmigrantform").addEventListener("submit", function(e) {
+
+    var honeypot = document.getElementById("website");
+
+    if (honeypot.value.trim() !== "") {
+        e.preventDefault();
+        return false;
+    }
+
+});
+</script>
+      
+<script>
+document.getElementById("loadtime").value = Date.now();
+
+document.getElementById("newmigrantform").addEventListener("submit", function(e){
+
+    var age = Date.now() - document.getElementById("loadtime").value;
+
+    if(age < 5000){
+        e.preventDefault();
+        alert("Please take a few moments to complete the form.");
+    }
+
+});
+</script>
+
+
    </head>
    <body translate="no" >
       <script src="https://www.google.com/recaptcha/api.js?render=6LcEkewkAAAAALA0btAAg6lzLgRhYF32zeW9x2Gu"></script>
@@ -245,6 +275,13 @@
                            </script>
                         </div>
                         <!--input type="submit" name="submit"-->
+                        
+<div style="display:none;">
+    <label>Leave this field empty</label>
+    <input type="text" id="website" name="website">
+</div>
+                        <input type="hidden" id="loadtime" name="loadtime">
+
                         <button type="submit" class="g-recaptcha" 
                            data-sitekey="6LcEkewkAAAAALA0btAAg6lzLgRhYF32zeW9x2Gu" 
                            data-callback='onSubmit' 
