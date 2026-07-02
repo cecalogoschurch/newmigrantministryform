@@ -149,33 +149,7 @@
          }
       </script>
       
-<script>
-document.getElementById("newmigrantform").addEventListener("submit", function(e) {
 
-    var honeypot = document.getElementById("website");
-
-    if (honeypot.value.trim() !== "") {
-        e.preventDefault();
-        return false;
-    }
-
-});
-</script>
-      
-<script>
-document.getElementById("loadtime").value = Date.now();
-
-document.getElementById("newmigrantform").addEventListener("submit", function(e){
-
-    var age = Date.now() - document.getElementById("loadtime").value;
-
-    if(age < 5000){
-        e.preventDefault();
-        alert("Please take a few moments to complete the form.");
-    }
-
-});
-</script>
 
 
    </head>
@@ -292,5 +266,32 @@ document.getElementById("newmigrantform").addEventListener("submit", function(e)
             </div>
          </div>
       </div>
+<script>
+document.getElementById("newmigrantform").addEventListener("submit", function(e) {
+
+    var honeypot = document.getElementById("website");
+
+    if (honeypot.value.trim() !== "") {
+        e.preventDefault();
+        return false;
+    }
+
+});
+</script>
+      
+<script>
+document.getElementById("loadtime").value = Date.now();
+
+document.getElementById("newmigrantform").addEventListener("submit", function(e){
+
+    var age = Date.now() - document.getElementById("loadtime").value;
+
+    if(age < 5000){
+        e.preventDefault();
+        alert("Please take a few moments to complete the form.");
+    }
+
+});
+</script>
    </body>
 </html>
